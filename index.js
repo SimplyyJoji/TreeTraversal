@@ -11,3 +11,14 @@ function bfs () {
   }
   return data;
 }
+function dfs() {
+  var data = [];
+  var current = this.root;
+  function transverse (node) {
+    data.push(node);
+    if (node.left) transverse(node.left)
+    if (node.right) transverse(node.right)
+    }
+    transverse(this.root)
+    return data;
+}
