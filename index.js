@@ -14,21 +14,40 @@ class Node {
     this.right = null;
   }
 }
+
   class BinarySearchTree {
     constructor(){
       this.root = null;
-
     }
     insert(item) {
-  let newNode = new Node(item);
-  
-  if (this.root === null ) {
-    this.root = newNode;
-    return this;
+    //Create variable for new node
+      let newNode = new Node(item);
+  //if the root is empty then the item is the root
+      if (this.root === null ) {
+        this.root = newNode;
+        return this;
+      }
+    //curent equals the root 
+      var current = this.root
+      while(true) {
+      if (item === current.item) return undefined;
+      if (item < current.item) {
+        if (current.left === null) {
+          current.left = newNode;
+          return this;
+      }
+        current = current.left;
+        } else {
+          if (current.right === null) {
+            current.right = newNode;
+            return this;
+        }
+        current = current.right;
+      } 
+    }
   }
-
 }
-  }
+  
 
 
  
@@ -60,3 +79,5 @@ function dfs() {
 var tree = new BinarySearchTree();
 
 tree.insert(10);
+tree.insert(2);
+tree.insert(4);
