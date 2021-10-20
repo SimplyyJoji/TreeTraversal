@@ -19,17 +19,19 @@ class Node {
       this.root = null;
 
     }
-  }
-
-
-function insert(item) {
-  let newNode = new Node(value);
+    insert(item) {
+  let newNode = new Node(item);
   
-  if (this.root.length < 1 ) {
+  if (this.root === null ) {
     this.root = newNode;
+    return this;
   }
 
 }
+  }
+
+
+ 
 
 function bfs () {
   var node = this.root;
@@ -55,3 +57,6 @@ function dfs() {
     transverse(this.root)
     return data;
 }
+var tree = new BinarySearchTree();
+
+tree.insert(10);
