@@ -46,11 +46,39 @@ class Node {
       } 
     }
   }
+  contains(item) {
+    if (this.root === null) return false;
+    var current = this.root,
+      found = false;
+    while(current && !found) {
+      if (item < current.value) {
+        current = current.left;
+      } else if (item > current.value) {
+          current = current.right
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+  find(item) {
+    if (this.root === null) return false;
+    var current = this.root,
+      found = false;
+    while(current && !found) {
+      if (item < current.value) {
+        current = current.left;
+      } else if (item > current.value) {
+          current = current.right
+      } else {
+        found = true;
+      }
+    }
+    if (!found) return undefined;
+    return current;
+  }
 }
-  
 
-
- 
 
 function bfs () {
   var node = this.root;
